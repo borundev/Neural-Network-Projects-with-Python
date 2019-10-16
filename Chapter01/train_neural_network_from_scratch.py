@@ -5,6 +5,15 @@ def sigmoid(x):
     return 1.0/(1+ np.exp(-x))
 
 def sigmoid_derivative(x):
+    """
+    This is the derivative of sigmoid function when the input itself is the sigmoid function.
+    Note that the argument is not the argument of the original sigmoid function.
+
+    sigma' = sigma*(1-sigma)
+
+    :param x:
+    :return:
+    """
     return x * (1.0 - x)
 
 class NeuralNetwork:
@@ -21,6 +30,9 @@ class NeuralNetwork:
 
     def backprop(self):
         # application of the chain rule to find derivative of the loss function with respect to weights2 and weights1
+
+        # Weird thing about this is that the loss function is not cross entropy but RMS.
+
         d_weights2 = np.dot(self.layer1.T, (2*(self.y - self.output) * sigmoid_derivative(self.output)))
         d_weights1 = np.dot(self.input.T,  (np.dot(2*(self.y - self.output) * sigmoid_derivative(self.output), self.weights2.T) * sigmoid_derivative(self.layer1)))
 
