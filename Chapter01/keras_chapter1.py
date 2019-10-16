@@ -1,6 +1,6 @@
-from keras.models import Sequential
-from keras.layers import Dense
-from keras import optimizers
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras import optimizers
 import numpy as np
 np.random.seed(9)
 
