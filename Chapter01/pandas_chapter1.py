@@ -33,13 +33,13 @@ Data Visualization in Panads
 
 # Define marker shapes by class
 marker_shapes = ['.', '^', '*']
-
+marker_colors = ['r', 'g', 'b']
 # Then, plot the scatterplot
 for i, species in enumerate(df['class'].unique()):
   if i == 0:
-    ax = df[df['class'] == species].plot.scatter(x='sepal_length', y='sepal_width', marker=marker_shapes[i], s=100,title="Sepal Width vs Length by Species", label=species, figsize=(10,7))
+    ax = df[df['class'] == species].plot.scatter(x='sepal_length', y='sepal_width', marker=marker_shapes[i], color=marker_colors[i], s=100,title="Sepal Width vs Length by Species", label=species, figsize=(10,7))
   else:
-    df[df['class'] == species].plot.scatter(x='sepal_length', y='sepal_width', marker=marker_shapes[i], s=100, title="Sepal Width vs Length by Species", label=species, ax=ax)
+    df[df['class'] == species].plot.scatter(x='sepal_length', y='sepal_width', marker=marker_shapes[i], color=marker_colors[i], s=100, title="Sepal Width vs Length by Species", label=species, ax=ax)
 plt.show()
 plt.clf()
 
